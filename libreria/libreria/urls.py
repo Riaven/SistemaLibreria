@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.contrib.auth import login
+from apps.accounts.views import user_list
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inicio/', include (('apps.producto.urls', 'producto'), namespace = "producto")),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^userlist/', user_list, name='user_listar'),
     
 ]

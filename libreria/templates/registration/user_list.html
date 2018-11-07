@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% load materializecss %}
+
+{% block content %}
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                
+                <td>Usuario</td>
+                <td>Nombre </td>
+                <td>Acción</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% if users %}
+            {% for user in users %}
+            <tr>
+                
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>
+                    <a class="btn waves-effect waves-light red" href="#">Deshabilitar</a>
+                </td>
+                
+            </tr>
+    
+            {% endfor %}
+    
+            {% else %}
+    
+            <h1>No existen registros</h1>
+    
+            {% endif %}
+        </tbody>
+    </table>
+   
+  </div>
+{% endblock %}
