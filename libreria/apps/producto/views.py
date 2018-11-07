@@ -24,6 +24,12 @@ def producto_list(request):
     contexto = {'productos':producto}
     return render(request, 'producto/producto_list.html', contexto)
 
+def producto_stock(request):
+    producto = Producto.objects.all()
+    contexto = {'productos':producto}
+    return render(request, 'producto/producto_stock.html', contexto)
+
+
 def producto_edit(request, id_producto):
     producto = Producto.objects.get(id=id_producto)
     if request.method == 'GET':

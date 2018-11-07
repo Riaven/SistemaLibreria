@@ -4,38 +4,51 @@
 {% load materializecss %}
 
 {% block content%}
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="contatiner">
+    <br><br>
+    <h1 class="header center orange-text">Bienvenido!</h1>
+    <div class="row center">
+      <a href="{% url 'producto:producto_stock' %}" class="btn-large waves-effect waves-light orange" >Stock de productos</a>
+    </div>
+  </div>
+</div>
+
 <div class="container">
+
   <div class="section">
 
     <!--   Icon Section   -->
     <div class="row">
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">assignment</i></h2>
+          <h2 class="center light-blue-text"><i class="large material-icons">assignment</i></h2>
+          <a href="{% url 'email' %}">
           <h5 class="center">Despacho</h5>
-
-          <p class="light">-Recepcionar <br>-Pedir </p>
+          </a>
+         
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+          <h2 class="center light-blue-text"><i class="large material-icons">group</i></h2>
+          <a href="{% url 'user_listar' %}">
           <h5 class="center">Gestión de Usuarios</h5>
-
-          <p class="light">-Agregar <br>-Deshabilitar </p>
+        </a>
+          
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">view_list</i></h2>
-          <a href="{% url 'producto:producto_crear' %}">
+          <h2 class="center light-blue-text"><i class="large material-icons">view_list</i></h2>
+          <a href="{% url 'producto:producto_listar' %}">
             <h5 class="center">Gestión de Productos</h5>
           </a>
 
-          <a href="{% url 'producto:producto_listar' %}">-Listar</a>
-          <p class="light">-Agregar <br>-Modificar <br>-Eliminar</p>
+          
         </div>
       </div>
     </div>

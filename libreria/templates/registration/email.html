@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load materializecss %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="row center"><h1>Despacho</h1></div>  
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions center">
+            <button class="btn waves-effect waves-light" type="submit">Enviar</button>
+        </div>
+    </form>
+    <br>
+
+</div>
+
+
+{% endblock %}
