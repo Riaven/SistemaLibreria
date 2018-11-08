@@ -7,6 +7,6 @@ from .views import emailView, successView
 from django.contrib.auth.views import logout_then_login, LoginView
 
 urlpatterns = [
-    path('email/', emailView, name='email'),
-    path('success/', successView, name='success'),
+    url(r'^email/', emailView, name='email'),
+    url(r'^success/', successView, name='success'),
 ]

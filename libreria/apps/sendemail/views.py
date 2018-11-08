@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
+
 def emailView(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -14,10 +15,10 @@ def emailView(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['panchaguerrerodiaz@gmail.com'])
+                send_mail(subject, message, from_email, ['librerialmg@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('sendemail:success')
+            return redirect('index')
     return render(request, "registration/email.html", {'form': form})
 
 def successView(request):
