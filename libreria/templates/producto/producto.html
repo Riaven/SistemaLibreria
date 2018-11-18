@@ -9,6 +9,10 @@
   <div class="contatiner">
     <br><br>
     <h1 class="header center orange-text">Bienvenido!</h1>
+    {% if user.is_authenticated == False %}
+    <h4 class=" center">Antes de ingresar a cualquier opción debes de estar logueado :)</h4>
+    <br><br>
+    {% endif %}
     <div class="row center">
       <a href="{% url 'producto:producto_stock' %}" class="btn-large waves-effect waves-light orange" >Stock de productos</a>
     </div>

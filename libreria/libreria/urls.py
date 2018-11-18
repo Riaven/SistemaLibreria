@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
 from django.contrib.auth import login
-from apps.accounts.views import user_list 
+from django.contrib.auth.decorators import login_required
+from apps.accounts.views import user_list
 from apps.sendemail.views import emailView
 from django.contrib.auth.views import LoginView, logout_then_login
 
@@ -25,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inicio/', include (('apps.producto.urls', 'producto'), namespace = "producto")),
     url(r'^accounts/login/', LoginView.as_view(), name='login'),
-    url(r'^userlist/', user_list, name='user_listar'),
-    url(r'^send/', emailView, name='email'),
+    url(r'^userlist/', login_required(user_list), name='user_listar'),
+    url(r'^send/', login_required(emailView), name='email'),
     url(r'^logout/', logout_then_login, name='logout'),
 ]
