@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inicio/', include (('apps.producto.urls', 'producto'), namespace = "producto")),
     url(r'^accounts/login/', LoginView.as_view(), name='login'),
+    url(r'^accounts/', include ('apps.accounts.urls')),
     url(r'^userlist/', login_required(user_list), name='user_listar'),
     url(r'^send/', login_required(emailView), name='email'),
     url(r'^logout/', logout_then_login, name='logout'),

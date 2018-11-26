@@ -29,10 +29,10 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>
                     {% if user.is_active %}
-                    <a class="btn waves-effect waves-light red" href="">Deshabilitar</a>
+                    <a class="btn waves-effect waves-light red" href="{% url 'deshabilitar_user' user.id %}">Deshabilitar</a>
                     {% endif %}
                     {% if user.is_active == False %}
-                    <a class="btn waves-effect waves-light green" href="">Habilitar</a>
+                    <a class="btn waves-effect waves-light green" href="{% url 'deshabilitar_user' user.id %}">Habilitar</a>
                     {% endif %}
 
                 </td>
