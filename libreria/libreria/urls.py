@@ -30,3 +30,5 @@ urlpatterns = [
     url(r'^send/', login_required(emailView), name='email'),
     url(r'^logout/', logout_then_login, name='logout'),
 ]
+
+

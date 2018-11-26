@@ -9,28 +9,37 @@
 </div>
 
     <table class="table table-bordered">
+            {% csrf_token %}
         <thead>
             <tr>
                 
-                <td>Usuario</td>
-                <td>Nombre </td>
-                <td>Acción</td>
+                <td><b>Usuario</b></td>
+                <td><b>Nombre</b></td>
+                <td><b>Acción</b></td>
                 
             </tr>
         </thead>
         <tbody>
             {% if users %}
             {% for user in users %}
+            {% if user.is_superuser == False %}
             <tr>
                 
                 <td>{{ user.username }}</td>
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>
-                    <a class="btn waves-effect waves-light red" href="#">Deshabilitar</a>
+                    {% if user.is_active %}
+                    <a class="btn waves-effect waves-light red" href="">Deshabilitar</a>
+                    {% endif %}
+                    {% if user.is_active == False %}
+                    <a class="btn waves-effect waves-light green" href="">Habilitar</a>
+                    {% endif %}
+
                 </td>
                 
             </tr>
-    
+            {% endif %}
+
             {% endfor %}
     
             {% else %}
