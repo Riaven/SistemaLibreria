@@ -7,9 +7,12 @@ from django.core.mail import send_mail
 
 
 def user_list(request):
-    user = User.objects.all()
-    contexto = {'users':user}
-    return render(request, 'registration/user_list.html', contexto)
+    if request.user.is_superuser:
+        user = User.objects.all()
+        contexto = {'users':user}
+        return render(request, 'registration/user_list.html', contexto)
+    else:
+        return HttpResponseNotFound('<h1>Página no encontrada o no tienes los suficientes permisos para entrar a ella :(</h1>')
 
 def deshabilitar_user(request, id_user):
     # Se comprueba que el usuario que ingresará a esta función sea un Súper usuario

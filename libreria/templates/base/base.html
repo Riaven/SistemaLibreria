@@ -30,11 +30,11 @@
         </ul>
 
      
-
+        {% if user.is_superuser %}
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'producto:producto_listar' %}">Gestión de productos</a></li>
       </ul>
-
+      {% endif %}
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'producto:producto_stock' %}">Stock de productos</a></li>
       </ul>

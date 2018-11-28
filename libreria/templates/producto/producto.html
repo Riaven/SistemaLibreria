@@ -25,7 +25,8 @@
 
     <!--   Icon Section   -->
     <div class="row">
-      <div class="col s12 m4">
+      <div {% if user.is_superuser %} class="col s12 m4" {% endif %}>
+
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="large material-icons">assignment</i></h2>
           <a href="{% url 'email' %}">
@@ -34,7 +35,7 @@
          
         </div>
       </div>
-
+       {% if user.is_superuser %}
       <div class="col s12 m4">
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="large material-icons">group</i></h2>
@@ -55,6 +56,7 @@
           
         </div>
       </div>
+       {% endif %}
     </div>
 
   </div>
